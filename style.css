@@ -308,3 +308,92 @@ h1 em {
   .categories-section { padding: 0 24px 40px; }
   .categories-pills { gap: 8px; }
 }
+
+
+
+<!-- ── TOP RESTAURANT CHAINS ── -->
+<section class="restaurant-section">
+
+  <div class="restaurant-header">
+    <h2>Top restaurant chains in Sikar</h2>
+
+    <div class="slider-buttons">
+      <button class="slide-btn" id="prevBtn">&#8592;</button>
+      <button class="slide-btn" id="nextBtn">&#8594;</button>
+    </div>
+  </div>
+
+  <div class="restaurant-slider" id="restaurantSlider">
+
+    <!-- CARD 1 -->
+    <div class="restaurant-card">
+      <img src="image(8).png" alt="Dominos Pizza">
+
+      <div class="restaurant-info">
+        <h3>Domino's Pizza</h3>
+
+        <div class="rating-time">
+          <span>⭐ 4.0</span>
+          <span>20-25 mins</span>
+        </div>
+
+        <p>Pizzas, Italian, Pastas, Desserts</p>
+        <small>Old Sikar</small>
+      </div>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="restaurant-card">
+      <img src="image(9).png" alt="Pizza Hut">
+
+      <div class="restaurant-info">
+        <h3>Pizza Hut</h3>
+
+        <div class="rating-time">
+          <span>⭐ 4.3</span>
+          <span>30-35 mins</span>
+        </div>
+
+        <p>Pizzas</p>
+        <small>Old Sikar</small>
+      </div>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="restaurant-card">
+      <img src="image(10).png" alt="Burger Farm">
+
+      <div class="restaurant-info">
+        <h3>Burger Farm</h3>
+
+        <div class="rating-time">
+          <span>⭐ 4.3</span>
+          <span>35-40 mins</span>
+        </div>
+
+        <p>Burgers, Beverages, Snacks</p>
+        <small>Old Sikar</small>
+      </div>
+    </div>
+
+    <!-- CARD 4 -->
+    <div class="restaurant-card">
+      <img src="image(11).png" alt="Baskin Robbins">
+
+      <div class="restaurant-info">
+        <h3>Baskin Robbins</h3>
+
+        <div class="rating-time">
+          <span>⭐ 4.4</span>
+          <span>35-40 mins</span>
+        </div>
+
+        <p>Desserts, Ice Cream</p>
+        <small>Sikar</small>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
