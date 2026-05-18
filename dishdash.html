@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DishDash – Delicious food, delivered fast.</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Fraunces:ital,wght@0,800;1,800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #f5f0eb;
+      --card-bg:   #fde8d0;
+      --orange:    #e84c0e;
+      --orange-lt: #f97316;
+      --dark:      #1a1208;
+      --muted:     #6b5e52;
+      --white:     #ffffff;
+      --badge-bg:  #fde84a;
+      --badge-txt: #7a5e00;
+    }
+
+    html, body {
+      background: var(--bg);
+      font-family: 'DM Sans', sans-serif;
+      color: var(--dark);
+      overflow-x: hidden;
+    }
+
+    /* ───── NAVBAR ───── */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 64px;
+      background: var(--bg);
+    }
+
+    .logo {
+      font-family: 'Fraunces', serif;
+      font-size: 1.55rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: var(--dark);
+      text-decoration: none;
+    }
+    .logo span { color: var(--orange); }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--dark);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--orange); }
+
+    .cart-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--dark);
+      color: var(--white);
+      border: none;
+      border-radius: 50px;
+      padding: 10px 20px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .cart-btn:hover { background: var(--orange); }
+    .cart-count {
+      background: var(--orange-lt);
+      color: var(--white);
+      border-radius: 50%;
+      width: 22px; height: 22px;
+      display: grid; place-items: center;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    /* ───── HERO ───── */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 40px 64px 60px;
+      min-height: calc(100vh - 80px);
+      position: relative;
+    }
+
+    .hero-left {
+      flex: 0 0 50%;
+      max-width: 520px;
+      animation: fadeUp 0.8s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--badge-bg);
+      color: var(--badge-txt);
+      padding: 6px 14px;
+      border-radius: 50px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-bottom: 28px;
+      animation: fadeUp 0.8s 0.1s ease both;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 5vw, 4rem);
+      font-weight: 700;
+      line-height: 1.12;
+      letter-spacing: -1px;
+      margin-bottom: 12px;
+      animation: fadeUp 0.8s 0.2s ease both;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--orange);
+      display: block;
+    }
+
+    .sub {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.65;
+      max-width: 380px;
+      margin-bottom: 36px;
+      animation: fadeUp 0.8s 0.3s ease both;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 14px;
+      animation: fadeUp 0.8s 0.4s ease both;
+    }
+
+    .btn-primary {
+      background: var(--orange);
+      color: var(--white);
+      border: none;
+      border-radius: 50px;
+      padding: 14px 30px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.97rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex; align-items: center; gap: 8px;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: #c73d06; transform: translateY(-1px); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--dark);
+      border: 2px solid var(--dark);
+      border-radius: 50px;
+      padding: 14px 30px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.97rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, transform 0.15s;
+    }
+    .btn-outline:hover { background: var(--dark); color: var(--white); transform: translateY(-1px); }
+
+    /* ───── STATS ───── */
+    .stats {
+      display: flex;
+      gap: 36px;
+      margin-top: 52px;
+      padding-top: 32px;
+      border-top: 1.5px solid #ddd4c8;
+      animation: fadeUp 0.8s 0.55s ease both;
+    }
+
+    .stat-item {}
+    .stat-value {
+      font-family: 'Fraunces', serif;
+      font-size: 1.9rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+    .star { color: var(--orange); }
+    .stat-label {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    /* ───── HERO RIGHT (circle + pizza) ───── */
+    .hero-right {
+      flex: 0 0 46%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      animation: fadeIn 1s 0.3s ease both;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    .circle-bg {
+      width: clamp(320px, 36vw, 480px);
+      height: clamp(320px, 36vw, 480px);
+      background: var(--card-bg);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .pizza-emoji {
+      font-size: clamp(100px, 14vw, 160px);
+      line-height: 1;
+      animation: float 3.5s ease-in-out infinite;
+      user-select: none;
+      filter: drop-shadow(0 18px 28px rgba(0,0,0,0.12));
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(-8deg); }
+      50%       { transform: translateY(-18px) rotate(-3deg); }
+    }
+
+    /* ───── BROWSE CATEGORIES ───── */
+    .categories-section {
+      padding: 0 64px 48px;
+      animation: fadeUp 0.8s 0.65s ease both;
+    }
+
+    .categories-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .categories-pills {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 9px 18px;
+      border-radius: 50px;
+      border: 1.5px solid #ddd4c8;
+      background: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--dark);
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s, color 0.2s, transform 0.15s;
+      white-space: nowrap;
+    }
+
+    .pill:hover {
+      border-color: var(--orange);
+      color: var(--orange);
+      transform: translateY(-1px);
+    }
+
+    .pill.active {
+      background: var(--dark);
+      color: var(--white);
+      border-color: var(--dark);
+    }
+
+    .pill.active:hover {
+      background: var(--orange);
+      border-color: var(--orange);
+      color: var(--white);
+    }
+
+    /* ───── RESPONSIVE ───── */
+    @media (max-width: 860px) {
+      nav { padding: 16px 24px; }
+      .nav-links { display: none; }
+      .hero { flex-direction: column-reverse; padding: 24px 24px 48px; gap: 32px; min-height: auto; }
+      .hero-left { max-width: 100%; }
+      .hero-right { width: 100%; }
+      .circle-bg { width: 260px; height: 260px; }
+      .categories-section { padding: 0 24px 40px; }
+      .categories-pills { gap: 8px; }
+    
+</head>
+<body>
+
+<!-- ── NAVBAR ── -->
+<nav>
+  <a class="logo" href="#">Dish<span>Dash</span></a>
+  <ul class="nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Menu</a></li>
+    <li><a href="#">About</a></li>
+  </ul>
+  <button class="cart-btn" onclick="addToCart()">
+    🛒 Cart <span class="cart-count" id="cartCount">0</span>
+  </button>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+
+  <div class="hero-left">
+    <div class="badge">🚀 Fast Delivery in 30 min</div>
+
+    <h1>
+      Delicious food,
+      <em>delivered fast.</em>
+    </h1>
+
+    <p class="sub">
+      Order your favourite meals from top restaurants<br>
+      and get it delivered hot and fresh to your doorstep.
+    </p>
+
+    <div class="cta-row">
+      <button class="btn-primary">Order Now &rarr;</button>
+      <button class="btn-outline">View Menu</button>
+    </div>
+
+    <div class="stats">
+      <div class="stat-item">
+        <div class="stat-value">50+</div>
+        <div class="stat-label">Menu items</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">4.9<span class="star">★</span></div>
+        <div class="stat-label">Avg rating</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">30min</div>
+        <div class="stat-label">Delivery</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="circle-bg">
+      <div class="pizza-emoji">🍕</div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ── BROWSE CATEGORIES ── -->
+<section class="categories-section">
+  <div class="categories-label">Browse Categories</div>
+  <div class="categories-pills">
+    <button class="pill active" data-cat="all">🍽️ All</button>
+    <button class="pill" data-cat="pizza">🍕 Pizza</button>
+    <button class="pill" data-cat="burgers">🍔 Burgers</button>
+    <button class="pill" data-cat="sushi">🍣 Sushi</button>
+    <button class="pill" data-cat="pasta">🍝 Pasta</button>
+    <button class="pill" data-cat="salads">🥗 Salads</button>
+    <button class="pill" data-cat="desserts">🍰 Desserts</button>
+    <button class="pill" data-cat="drinks">🧋 Drinks</button>
+  </div>
+</section>
+
+<script>
+  let count = 0;
+  function addToCart() {
+    count++;
+    document.getElementById('cartCount').textContent = count;
+  }
+
+  // Category pill selection
+  document.querySelectorAll('.pill').forEach(pill => {
+    pill.addEventListener('click', () => {
+      document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
