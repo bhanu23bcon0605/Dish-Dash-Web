@@ -421,3 +421,170 @@ nav{
     height:190px;
   }
 }
+
+
+/* ───────── FOOTER ───────── */
+
+.footer{
+  background:#f2f2f7;
+  padding:60px 64px;
+  margin-top:40px;
+}
+
+/* TOP */
+
+.footer-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding-bottom:40px;
+  border-bottom:1px solid #ddd;
+  margin-bottom:50px;
+  gap:30px;
+}
+
+.footer-top h2{
+  font-size:2rem;
+  font-family:'Fraunces', serif;
+  max-width:550px;
+  line-height:1.4;
+}
+
+.store-buttons{
+  display:flex;
+  gap:16px;
+}
+
+.store-buttons img{
+  width:180px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.store-buttons img:hover{
+  transform:scale(1.04);
+}
+
+/* GRID */
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.3fr 1fr 1fr 1fr 1fr;
+  gap:40px;
+}
+
+.footer-logo{
+  font-size:2rem;
+  font-family:'Fraunces', serif;
+  color:var(--dark);
+}
+
+.footer-logo span{
+  color:var(--orange);
+}
+
+.footer-brand p{
+  margin-top:14px;
+  color:gray;
+}
+
+/* COLUMNS */
+
+.footer-column{
+  display:flex;
+  flex-direction:column;
+}
+
+.footer-column h3{
+  margin-bottom:18px;
+  font-size:1.1rem;
+}
+
+.footer-column a{
+  text-decoration:none;
+  color:#555;
+  margin-bottom:12px;
+  transition:0.3s;
+}
+
+.footer-column a:hover{
+  color:var(--orange);
+}
+
+.footer-space{
+  height:25px;
+}
+
+.cities-btn{
+  width:120px;
+  padding:10px;
+  border-radius:10px;
+  border:1px solid #ccc;
+  background:white;
+  cursor:pointer;
+  margin-top:10px;
+}
+
+/* SOCIAL */
+
+.social-icons{
+  display:flex;
+  gap:14px;
+  margin-top:10px;
+}
+
+.social-icons a{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  background:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.1rem;
+  transition:0.3s;
+}
+
+.social-icons a:hover{
+  background:var(--orange);
+  color:white;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1000px){
+
+  .footer-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+}
+
+@media(max-width:768px){
+
+  .footer{
+    padding:50px 24px;
+  }
+
+  .footer-top{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .footer-top h2{
+    font-size:1.5rem;
+  }
+
+  .store-buttons{
+    flex-wrap:wrap;
+  }
+
+  .store-buttons img{
+    width:160px;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr;
+  }
+
+}
