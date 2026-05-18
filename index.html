@@ -4,29 +4,82 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>DishDash – Delicious food, delivered fast.</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Fraunces:ital,wght@0,800;1,800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Fraunces:wght@700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
   <link rel="stylesheet" href="style.css"/>
 </head>
+
 <body>
 
-  <!-- ── NAVBAR ── -->
+  <!-- ───────── NAVBAR ───────── -->
   <nav>
     <a class="logo" href="#">Dish<span>Dash</span></a>
+
     <ul class="nav-links">
       <li><a href="#">Home</a></li>
       <li><a href="#">Menu</a></li>
       <li><a href="#">About</a></li>
     </ul>
+
     <button class="cart-btn" onclick="addToCart()">
-      🛒 Cart <span class="cart-count" id="cartCount">0</span>
+      🛒 Cart
+      <span class="cart-count" id="cartCount">0</span>
     </button>
   </nav>
 
-  <!-- ── HERO ── -->
+  <!-- ───────── BROWSE CATEGORIES ───────── -->
+  <section class="categories-section top-categories">
+
+    <div class="categories-label">
+      Browse Categories
+    </div>
+
+    <div class="categories-pills">
+
+      <button class="pill active" data-cat="all">
+        🍽️ All
+      </button>
+
+      <button class="pill" data-cat="pizza">
+        🍕 Pizza
+      </button>
+
+      <button class="pill" data-cat="burgers">
+        🍔 Burgers
+      </button>
+
+      <button class="pill" data-cat="sushi">
+        🍣 Sushi
+      </button>
+
+      <button class="pill" data-cat="pasta">
+        🍝 Pasta
+      </button>
+
+      <button class="pill" data-cat="salads">
+        🥗 Salads
+      </button>
+
+      <button class="pill" data-cat="desserts">
+        🍰 Desserts
+      </button>
+
+      <button class="pill" data-cat="drinks">
+        🧋 Drinks
+      </button>
+
+    </div>
+  </section>
+
+  <!-- ───────── HERO SECTION ───────── -->
   <section class="hero">
 
     <div class="hero-left">
-      <div class="badge">🚀 Fast Delivery in 30 min</div>
+
+      <div class="badge">
+        🚀 Fast Delivery in 30 min
+      </div>
 
       <h1>
         Delicious food,
@@ -34,71 +87,178 @@
       </h1>
 
       <p class="sub">
-        Order your favourite meals from top restaurants<br>
+        Order your favourite meals from top restaurants
         and get it delivered hot and fresh to your doorstep.
       </p>
 
       <div class="cta-row">
-        <button class="btn-primary">Order Now &rarr;</button>
-        <button class="btn-outline">View Menu</button>
+
+        <button class="btn-primary">
+          Order Now →
+        </button>
+
+        <button class="btn-outline">
+          View Menu
+        </button>
+
       </div>
 
       <div class="stats">
+
         <div class="stat-item">
           <div class="stat-value">50+</div>
           <div class="stat-label">Menu items</div>
         </div>
+
         <div class="stat-item">
-          <div class="stat-value">4.9<span class="star">★</span></div>
-          <div class="stat-label">Avg rating</div>
+          <div class="stat-value">
+            4.9<span class="star">★</span>
+          </div>
+
+          <div class="stat-label">
+            Avg rating
+          </div>
         </div>
+
         <div class="stat-item">
           <div class="stat-value">30min</div>
           <div class="stat-label">Delivery</div>
         </div>
+
       </div>
+
     </div>
 
     <div class="hero-right">
+
       <div class="circle-bg">
         <div class="pizza-emoji">🍕</div>
       </div>
+
     </div>
 
   </section>
 
-  
-  <!-- ── BROWSE CATEGORIES ── -->
-  <section class="categories-section">
-    <div class="categories-label">Browse Categories</div>
-    <div class="categories-pills">
-      <button class="pill active" data-cat="all">🍽️ All</button>
-      <button class="pill" data-cat="pizza">🍕 Pizza</button>
-      <button class="pill" data-cat="burgers">🍔 Burgers</button>
-      <button class="pill" data-cat="sushi">🍣 Sushi</button>
-      <button class="pill" data-cat="pasta">🍝 Pasta</button>
-      <button class="pill" data-cat="salads">🥗 Salads</button>
-      <button class="pill" data-cat="desserts">🍰 Desserts</button>
-      <button class="pill" data-cat="drinks">🧋 Drinks</button>
+  <!-- ───────── TOP RESTAURANT CHAINS ───────── -->
+  <section class="restaurant-section">
+
+    <div class="restaurant-header">
+
+      <h2>
+        Top restaurant chains in Sikar
+      </h2>
+
+      <div class="slider-buttons">
+
+        <button class="slide-btn" id="prevBtn">
+          ←
+        </button>
+
+        <button class="slide-btn" id="nextBtn">
+          →
+        </button>
+
+      </div>
+
     </div>
+
+    <div class="restaurant-slider" id="restaurantSlider">
+
+      <!-- CARD 1 -->
+      <div class="restaurant-card">
+
+        <img src="image(8).png" alt="Dominos Pizza">
+
+        <div class="restaurant-info">
+
+          <h3>Domino's Pizza</h3>
+
+          <div class="rating-time">
+            <span>⭐ 4.0</span>
+            <span>20-25 mins</span>
+          </div>
+
+          <p>
+            Pizzas, Italian, Pastas, Desserts
+          </p>
+
+          <small>Old Sikar</small>
+
+        </div>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="restaurant-card">
+
+        <img src="image(9).png" alt="Pizza Hut">
+
+        <div class="restaurant-info">
+
+          <h3>Pizza Hut</h3>
+
+          <div class="rating-time">
+            <span>⭐ 4.3</span>
+            <span>30-35 mins</span>
+          </div>
+
+          <p>Pizzas</p>
+
+          <small>Old Sikar</small>
+
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="restaurant-card">
+
+        <img src="image(10).png" alt="Burger Farm">
+
+        <div class="restaurant-info">
+
+          <h3>Burger Farm</h3>
+
+          <div class="rating-time">
+            <span>⭐ 4.3</span>
+            <span>35-40 mins</span>
+          </div>
+
+          <p>
+            Burgers, Beverages, Snacks
+          </p>
+
+          <small>Old Sikar</small>
+
+        </div>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="restaurant-card">
+
+        <img src="image(11).png" alt="Baskin Robbins">
+
+        <div class="restaurant-info">
+
+          <h3>Baskin Robbins</h3>
+
+          <div class="rating-time">
+            <span>⭐ 4.4</span>
+            <span>35-40 mins</span>
+          </div>
+
+          <p>
+            Desserts, Ice Cream
+          </p>
+
+          <small>Sikar</small>
+
+        </div>
+      </div>
+
+    </div>
+
   </section>
 
-  <!-- ── BROWSE CATEGORIES (MOVE THIS BELOW NAVBAR) ── -->
-<section class="categories-section top-categories">
-  <div class="categories-label">Browse Categories</div>
-
-  <div class="categories-pills">
-    <button class="pill active" data-cat="all">🍽️ All</button>
-    <button class="pill" data-cat="pizza">🍕 Pizza</button>
-    <button class="pill" data-cat="burgers">🍔 Burgers</button>
-    <button class="pill" data-cat="sushi">🍣 Sushi</button>
-    <button class="pill" data-cat="pasta">🍝 Pasta</button>
-    <button class="pill" data-cat="salads">🥗 Salads</button>
-    <button class="pill" data-cat="desserts">🍰 Desserts</button>
-    <button class="pill" data-cat="drinks">🧋 Drinks</button>
-  </div>
-</section>
   <script src="script.js"></script>
+
 </body>
 </html>
-
