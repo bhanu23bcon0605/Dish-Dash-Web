@@ -1,383 +1,342 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>DishDash – Delicious food, delivered fast.</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DishDash Food Delivery</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Fraunces:wght@700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css">
 
-  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-  <!-- ───────── NAVBAR ───────── -->
-  <nav>
-    <a class="logo" href="#">Dish<span>Dash</span></a>
+<!-- LOADING SCREEN -->
+<div class="loader-wrapper" id="loader">
+  <div class="loader"></div>
+  <h2>DishDash</h2>
+</div>
 
-    <ul class="nav-links">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Menu</a></li>
-      <li><a href="#">About</a></li>
-    </ul>
+<!-- LOGIN POPUP -->
+<div class="popup" id="loginPopup">
 
-    <button class="cart-btn" onclick="addToCart()">
-      🛒 Cart
-      <span class="cart-count" id="cartCount">0</span>
+  <div class="popup-box">
+
+    <span class="close-popup" id="closePopup">×</span>
+
+    <h2>Login / Signup</h2>
+
+    <input type="text" placeholder="Enter Email">
+
+    <input type="password" placeholder="Enter Password">
+
+    <button>Continue</button>
+
+  </div>
+
+</div>
+
+<!-- NAVBAR -->
+<nav>
+
+  <div class="logo">
+    Dish<span>Dash</span>
+  </div>
+
+  <div class="nav-links">
+    <a href="#">Home</a>
+    <a href="#">Menu</a>
+    <a href="#">Offers</a>
+    <a href="#">Contact</a>
+  </div>
+
+  <div class="nav-right">
+
+    <button class="dark-btn" id="darkModeBtn">
+      🌙
     </button>
-  </nav>
 
-  <!-- ───────── BROWSE CATEGORIES ───────── -->
-  <section class="categories-section top-categories">
+    <button class="login-btn" id="openPopup">
+      Login
+    </button>
 
-    <div class="categories-label">
-      Browse Categories
-    </div>
+  </div>
 
-    <div class="categories-pills">
+</nav>
 
-      <button class="pill active" data-cat="all">
-        🍽️ All
+<!-- HERO -->
+<section class="hero">
+
+  <div class="hero-left">
+
+    <h1>
+      Delicious Food
+      Delivered Fast
+    </h1>
+
+    <p>
+      Order from top restaurants near you and enjoy delicious meals delivered fresh and hot.
+    </p>
+
+    <!-- SEARCH BAR -->
+
+    <div class="search-box">
+
+      <input type="text" placeholder="Search for restaurants, food, dishes...">
+
+      <button>
+        Search
       </button>
-
-      <button class="pill" data-cat="pizza">
-        🍕 Pizza
-      </button>
-
-      <button class="pill" data-cat="burgers">
-        🍔 Burgers
-      </button>
-
-      <button class="pill" data-cat="sushi">
-        🍣 Sushi
-      </button>
-
-      <button class="pill" data-cat="pasta">
-        🍝 Pasta
-      </button>
-
-      <button class="pill" data-cat="salads">
-        🥗 Salads
-      </button>
-
-      <button class="pill" data-cat="desserts">
-        🍰 Desserts
-      </button>
-
-      <button class="pill" data-cat="drinks">
-        🧋 Drinks
-      </button>
-
-    </div>
-  </section>
-
-  <!-- ───────── HERO SECTION ───────── -->
-  <section class="hero">
-
-    <div class="hero-left">
-
-      <div class="badge">
-        🚀 Fast Delivery in 30 min
-      </div>
-
-      <h1>
-        Delicious food,
-        <em>delivered fast.</em>
-      </h1>
-
-      <p class="sub">
-        Order your favourite meals from top restaurants
-        and get it delivered hot and fresh to your doorstep.
-      </p>
-
-      <div class="cta-row">
-
-        <button class="btn-primary">
-          Order Now →
-        </button>
-
-        <button class="btn-outline">
-          View Menu
-        </button>
-
-      </div>
-
-      <div class="stats">
-
-        <div class="stat-item">
-          <div class="stat-value">50+</div>
-          <div class="stat-label">Menu items</div>
-        </div>
-
-        <div class="stat-item">
-          <div class="stat-value">
-            4.9<span class="star">★</span>
-          </div>
-
-          <div class="stat-label">
-            Avg rating
-          </div>
-        </div>
-
-        <div class="stat-item">
-          <div class="stat-value">30min</div>
-          <div class="stat-label">Delivery</div>
-        </div>
-
-      </div>
-
-    </div>
-
-    <div class="hero-right">
-
-      <div class="circle-bg">
-        <div class="pizza-emoji">🍕</div>
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- ───────── TOP RESTAURANT CHAINS ───────── -->
-  <section class="restaurant-section">
-
-    <div class="restaurant-header">
-
-      <h2>
-        Top restaurant chains in Sikar
-      </h2>
-
-      <div class="slider-buttons">
-
-        <button class="slide-btn" id="prevBtn">
-          ←
-        </button>
-
-        <button class="slide-btn" id="nextBtn">
-          →
-        </button>
-
-      </div>
-
-    </div>
-
-    <div class="restaurant-slider" id="restaurantSlider">
-
-      <!-- CARD 1 -->
-      <div class="restaurant-card">
-
-        <img src="image(8).png" alt="Dominos Pizza">
-
-        <div class="restaurant-info">
-
-          <h3>Domino's Pizza</h3>
-
-          <div class="rating-time">
-            <span>⭐ 4.0</span>
-            <span>20-25 mins</span>
-          </div>
-
-          <p>
-            Pizzas, Italian, Pastas, Desserts
-          </p>
-
-          <small>Old Sikar</small>
-
-        </div>
-      </div>
-
-      <!-- CARD 2 -->
-      <div class="restaurant-card">
-
-        <img src="image(9).png" alt="Pizza Hut">
-
-        <div class="restaurant-info">
-
-          <h3>Pizza Hut</h3>
-
-          <div class="rating-time">
-            <span>⭐ 4.3</span>
-            <span>30-35 mins</span>
-          </div>
-
-          <p>Pizzas</p>
-
-          <small>Old Sikar</small>
-
-        </div>
-      </div>
-
-      <!-- CARD 3 -->
-      <div class="restaurant-card">
-
-        <img src="image(10).png" alt="Burger Farm">
-
-        <div class="restaurant-info">
-
-          <h3>Burger Farm</h3>
-
-          <div class="rating-time">
-            <span>⭐ 4.3</span>
-            <span>35-40 mins</span>
-          </div>
-
-          <p>
-            Burgers, Beverages, Snacks
-          </p>
-
-          <small>Old Sikar</small>
-
-        </div>
-      </div>
-
-      <!-- CARD 4 -->
-      <div class="restaurant-card">
-
-        <img src="image(11).png" alt="Baskin Robbins">
-
-        <div class="restaurant-info">
-
-          <h3>Baskin Robbins</h3>
-
-          <div class="rating-time">
-            <span>⭐ 4.4</span>
-            <span>35-40 mins</span>
-          </div>
-
-          <p>
-            Desserts, Ice Cream
-          </p>
-
-          <small>Sikar</small>
-
-        </div>
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- ───────── FOOTER ───────── -->
-
-<footer class="footer">
-
-  <!-- TOP DOWNLOAD SECTION -->
-
-  <div class="footer-top">
-
-    <h2>
-      For better experience, download the DishDash app now
-    </h2>
-
-    <div class="store-buttons">
-
-      <img
-        src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
-        alt="Google Play">
-
-      <img
-        src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
-        alt="App Store">
 
     </div>
 
   </div>
 
-  <!-- FOOTER CONTENT -->
+  <div class="hero-right">
+    🍕
+  </div>
 
-  <div class="footer-grid">
+</section>
 
-    <!-- LOGO -->
+<!-- INSPIRATION SECTION -->
 
-    <div class="footer-brand">
+<section class="inspiration-section">
 
-      <h1 class="footer-logo">
-        Dish<span>Dash</span>
-      </h1>
+  <h2>Inspiration for your first order</h2>
 
+  <div class="inspiration-slider">
+
+    <div class="food-item">
+      <img src="images/images/kachori.png">
+      <p>Kachori</p>
+    </div>
+
+    <div class="food-item">
+      <img src="images/images/samosa.png">
+      <p>Samosa</p>
+    </div>
+
+    <div class="food-item">
+      <img src="images/images/pyaaj-kachori.png">
+      <p>Pyaaj Kachori</p>
+    </div>
+
+    <div class="food-item">
+      <img src="images/images/idli.png">
+      <p>Idli</p>
+    </div>
+
+    <div class="food-item">
+      <img src="images/images/poha.png">
+      <p>Poha</p>
+    </div>
+
+    <div class="food-item">
+      <img src="images/images/paratha.png">
+      <p>Paratha</p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- OFFER SLIDER -->
+
+<section class="offer-section">
+
+  <h2>Best Offers For You</h2>
+
+  <div class="offer-slider">
+
+    <div class="offer-card">
+      <img src="images/images/offer1.jpg">
+      <div class="offer-overlay">
+        <h3>50% OFF</h3>
+        <p>On Pizza Orders</p>
+      </div>
+    </div>
+
+    <div class="offer-card">
+      <img src="images/images/offer2.jpg">
+      <div class="offer-overlay">
+        <h3>Buy 1 Get 1</h3>
+        <p>Special Burger Combo</p>
+      </div>
+    </div>
+
+    <div class="offer-card">
+      <img src="images/images/offer3.jpg">
+      <div class="offer-overlay">
+        <h3>Free Delivery</h3>
+        <p>Orders Above ₹299</p>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- TOP RESTAURANTS -->
+
+<section class="restaurants-section">
+
+  <h2>Top restaurant chains in Jaipur</h2>
+
+  <div class="restaurant-grid">
+
+    <div class="restaurant-card">
+      <img src="images/images/restaurant1.png">
+      <h3>Agarwal Caterers</h3>
+      <p>₹120 for one • 25 min</p>
+    </div>
+
+    <div class="restaurant-card">
+      <img src="images/images/restaurant2.png">
+      <h3>Gujju Ji Chai Wale</h3>
+      <p>₹100 for one • 20 min</p>
+    </div>
+
+    <div class="restaurant-card">
+      <img src="images/images/restaurant3.png">
+      <h3>Sharma Dhaba</h3>
+      <p>₹200 for one • 30 min</p>
+    </div>
+
+    <div class="restaurant-card">
+      <img src="images/images/restaurant4.png">
+      <h3>Pizza Box</h3>
+      <p>₹220 for one • 35 min</p>
+    </div>
+
+    <div class="restaurant-card">
+      <img src="images/images/restaurant5.png">
+      <h3>Samrat</h3>
+      <p>₹100 for one • 25 min</p>
+    </div>
+
+    <div class="restaurant-card">
+      <img src="images/images/restaurant6.png">
+      <h3>Kathi Egg Roll</h3>
+      <p>₹100 for one • 27 min</p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- LIVE TRACKING -->
+
+<section class="tracking-section">
+
+  <h2>Live Order Tracking</h2>
+
+  <div class="tracking-box">
+
+    <div class="track-step active">Order Confirmed</div>
+    <div class="track-step active">Preparing</div>
+    <div class="track-step active">On The Way</div>
+    <div class="track-step">Delivered</div>
+
+  </div>
+
+</section>
+
+<!-- TESTIMONIALS -->
+
+<section class="testimonial-section">
+
+  <h2>What Customers Say</h2>
+
+  <div class="testimonial-grid">
+
+    <div class="testimonial-card">
+      <img src="images/images/user1.jpg">
       <p>
-        © 2026 DishDash Limited
+        Amazing delivery service and delicious food.
       </p>
-
+      <h4>Rahul Sharma</h4>
     </div>
 
-    <!-- COMPANY -->
-
-    <div class="footer-column">
-
-      <h3>Company</h3>
-
-      <a href="#">About Us</a>
-      <a href="#">DishDash Corporate</a>
-      <a href="#">Careers</a>
-      <a href="#">Team</a>
-      <a href="#">DishDash One</a>
-      <a href="#">Instamart</a>
-
+    <div class="testimonial-card">
+      <img src="images/images/user2.jpg">
+      <p>
+        Best food ordering website project.
+      </p>
+      <h4>Priya Jain</h4>
     </div>
 
-    <!-- CONTACT -->
-
-    <div class="footer-column">
-
-      <h3>Contact Us</h3>
-
-      <a href="#">Help & Support</a>
-      <a href="#">Partner with us</a>
-      <a href="#">Ride with us</a>
-
-      <div class="footer-space"></div>
-
-      <h3>Legal</h3>
-
-      <a href="#">Terms & Conditions</a>
-      <a href="#">Cookie Policy</a>
-      <a href="#">Privacy Policy</a>
-
-    </div>
-
-    <!-- AVAILABLE -->
-
-    <div class="footer-column">
-
-      <h3>Available In</h3>
-
-      <a href="#">Bangalore</a>
-      <a href="#">Gurgaon</a>
-      <a href="#">Hyderabad</a>
-      <a href="#">Delhi</a>
-      <a href="#">Mumbai</a>
-      <a href="#">Pune</a>
-
-      <button class="cities-btn">
-        679 cities ▼
-      </button>
-
-    </div>
-
-    <!-- SOCIAL -->
-
-    <div class="footer-column">
-
-      <h3>Social Links</h3>
-
-      <div class="social-icons">
-
-        <a href="#">🌐</a>
-        <a href="#">📘</a>
-        <a href="#">📸</a>
-        <a href="#">🐦</a>
-
-      </div>
-
+    <div class="testimonial-card">
+      <img src="images/images/user3.jpg">
+      <p>
+        Fast delivery and awesome UI experience.
+      </p>
+      <h4>Aman Verma</h4>
     </div>
 
   </div>
+
+</section>
+
+<!-- FAQ -->
+
+<section class="faq-section">
+
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="faq-item">
+    <button class="faq-question">
+      How long does delivery take?
+    </button>
+
+    <div class="faq-answer">
+      Delivery usually takes 25-40 minutes.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">
+      Can I cancel my order?
+    </button>
+
+    <div class="faq-answer">
+      Yes, before restaurant starts preparing.
+    </div>
+  </div>
+
+</section>
+
+<!-- APP DOWNLOAD -->
+
+<section class="app-banner">
+
+  <div>
+    <h2>Download DishDash App</h2>
+    <p>Get exclusive offers and faster ordering.</p>
+  </div>
+
+  <div class="app-buttons">
+
+    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg">
+
+    <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg">
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+  <h2>DishDash</h2>
+
+  <p>
+    © 2026 DishDash. All Rights Reserved.
+  </p>
 
 </footer>
 
-  <script src="script.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
