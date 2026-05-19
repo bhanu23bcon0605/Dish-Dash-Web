@@ -57,24 +57,26 @@ body.dark{
 nav{
   position:sticky;
   top:0;
-  background:rgba(255,255,255,0.92);
+  width:100%;
+  background:rgba(255,255,255,0.96);
   backdrop-filter:blur(12px);
+
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:20px 70px;
+
+  padding:14px 60px;
+
   z-index:1000;
-  box-shadow:0 2px 15px rgba(0,0,0,0.06);
+
+  box-shadow:0 2px 15px rgba(0,0,0,0.05);
 }
 
 body.dark nav{
-  background:rgba(20,20,20,0.9);
+  background:rgba(18,18,18,0.95);
 }
 
-body.dark .cart-btn{
-  background:#1f1f1f;
-  color:white;
-}
+/* LOGO */
 
 .logo{
   display:flex;
@@ -82,19 +84,24 @@ body.dark .cart-btn{
 }
 
 .logo img{
-  width:170px;
+  width:190px;
+  height:auto;
   object-fit:contain;
 }
 
+/* NAV LINKS */
+
 .nav-links{
   display:flex;
-  gap:30px;
+  align-items:center;
+  gap:40px;
 }
 
 .nav-links a{
   text-decoration:none;
-  color:inherit;
-  font-weight:500;
+  color:#111;
+  font-weight:600;
+  font-size:1.05rem;
   transition:0.3s;
 }
 
@@ -102,41 +109,35 @@ body.dark .cart-btn{
   color:orange;
 }
 
-.nav-right{
-  display:flex;
-  gap:12px;
+body.dark .nav-links a{
+  color:white;
 }
 
+/* RIGHT BUTTONS */
+
+.nav-right{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.cart-btn,
 .dark-btn,
 .login-btn{
   border:none;
-  padding:12px 20px;
   border-radius:40px;
   cursor:pointer;
   font-weight:600;
   transition:0.3s;
 }
 
-.dark-btn{
-  background:#111;
-  color:white;
-}
-
-.login-btn{
-  background:orange;
-  color:white;
-}
+/* CART */
 
 .cart-btn{
-  border:none;
-  padding:12px 20px;
-  border-radius:40px;
-  cursor:pointer;
-  font-weight:600;
+  padding:12px 22px;
   background:white;
   color:#111;
   box-shadow:0 4px 15px rgba(0,0,0,0.08);
-  transition:0.3s;
 }
 
 .cart-btn:hover{
@@ -144,8 +145,38 @@ body.dark .cart-btn{
   color:white;
 }
 
+/* DARK BUTTON */
+
+.dark-btn{
+  width:58px;
+  height:48px;
+  background:#111;
+  color:white;
+  font-size:1rem;
+}
+
+/* LOGIN */
+
+.login-btn{
+  padding:12px 24px;
+  background:orange;
+  color:white;
+}
+
 .login-btn:hover{
-  background:#ff9100;
+  background:#ff8c00;
+}
+
+/* DARK MODE */
+
+body.dark .cart-btn{
+  background:#1f1f1f;
+  color:white;
+}
+
+body.dark .dark-btn{
+  background:white;
+  color:black;
 }
 
 /* HERO */
@@ -155,9 +186,13 @@ body.dark .cart-btn{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:120px 70px;
+
+  padding:140px 70px 110px;
+
   min-height:92vh;
+
   overflow:hidden;
+
   isolation:isolate;
 }
 
@@ -165,15 +200,17 @@ body.dark .cart-btn{
 
 .hero::before{
   content:'';
+
   position:absolute;
+
   inset:0;
 
   background:
     linear-gradient(
       to right,
-      rgba(255,255,255,0.94) 30%,
-      rgba(255,255,255,0.72) 55%,
-      rgba(255,255,255,0.18) 100%
+      rgba(255,255,255,0.94) 28%,
+      rgba(255,255,255,0.75) 50%,
+      rgba(255,255,255,0.12) 100%
     ),
     url('images/images/banner.png');
 
@@ -188,18 +225,22 @@ body.dark .cart-btn{
 
 .hero::after{
   content:'';
+
   position:absolute;
+
   inset:0;
 
   background:
     radial-gradient(
       circle at left center,
-      rgba(255,255,255,0.35),
+      rgba(255,255,255,0.3),
       transparent 55%
     );
 
   z-index:-1;
 }
+
+/* HERO LEFT */
 
 .hero-left{
   max-width:620px;
@@ -207,7 +248,7 @@ body.dark .cart-btn{
 }
 
 .hero-left h1{
-  font-size:5.3rem;
+  font-size:5.4rem;
   line-height:1.02;
   font-weight:800;
   color:#111;
@@ -695,11 +736,26 @@ body.dark .testimonial-card p{
 @media(max-width:900px){
 
   nav{
-    padding:20px;
+    padding:16px 20px;
+  }
+
+  .logo img{
+    width:140px;
   }
 
   .nav-links{
     display:none;
+  }
+
+  .nav-right{
+    gap:8px;
+  }
+
+  .cart-btn,
+  .dark-btn,
+  .login-btn{
+    padding:10px 14px;
+    font-size:0.9rem;
   }
 
   .hero{
