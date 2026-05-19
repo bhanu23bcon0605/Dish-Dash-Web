@@ -1,52 +1,70 @@
-// ───────── CART ─────────
+// LOADER
 
-let cartCount = 0;
+window.addEventListener("load", ()=>{
 
-function addToCart(){
+  setTimeout(()=>{
 
-  cartCount++;
+    document.getElementById("loader").style.display = "none";
 
-  document.getElementById("cartCount").textContent = cartCount;
-}
+  },1500);
 
-/* ───────── CATEGORY BUTTONS ───────── */
+});
 
-document.querySelectorAll(".pill").forEach((pill)=>{
+// DARK MODE
 
-  pill.addEventListener("click", ()=>{
+const darkBtn = document.getElementById("darkModeBtn");
 
-    document.querySelectorAll(".pill").forEach((p)=>{
-      p.classList.remove("active");
-    });
+darkBtn.addEventListener("click", ()=>{
 
-    pill.classList.add("active");
+  document.body.classList.toggle("dark");
+
+});
+
+// FAQ
+
+const faqQuestions = document.querySelectorAll(".faq-question");
+
+faqQuestions.forEach((btn)=>{
+
+  btn.addEventListener("click", ()=>{
+
+    const answer = btn.nextElementSibling;
+
+    if(answer.style.display === "block"){
+      answer.style.display = "none";
+    }
+    else{
+      answer.style.display = "block";
+    }
 
   });
 
 });
 
-/* ───────── RESTAURANT SLIDER ───────── */
+// POPUP
 
-const slider = document.getElementById("restaurantSlider");
+const popup = document.getElementById("loginPopup");
 
-const nextBtn = document.getElementById("nextBtn");
+const openPopup = document.getElementById("openPopup");
 
-const prevBtn = document.getElementById("prevBtn");
+const closePopup = document.getElementById("closePopup");
 
-nextBtn.addEventListener("click", ()=>{
+openPopup.addEventListener("click", ()=>{
 
-  slider.scrollBy({
-    left:340,
-    behavior:"smooth"
-  });
+  popup.style.display = "flex";
 
 });
 
-prevBtn.addEventListener("click", ()=>{
+closePopup.addEventListener("click", ()=>{
 
-  slider.scrollBy({
-    left:-340,
-    behavior:"smooth"
-  });
+  popup.style.display = "none";
+
+});
+
+window.addEventListener("click", (e)=>{
+
+  if(e.target === popup){
+    popup.style.display = "none";
+  }
 
 });
